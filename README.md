@@ -2,6 +2,18 @@
 
 SWAPI-GQL is a GraphQL wrapper for the Star Wars API (SWAPI). It is built using NestJS and Apollo Server.
 
+## Architecture Design
+
+### Description
+
+App has 3 layers.
+Each layer is a separate module.
+API is handling all GQL staff.
+
+### API
+
+Api is built using GQL and Apollo Server.
+
 ## Installation
 
 ```bash
