@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
-import { FilmsService } from './films.service';
 import { FilmsResolver } from './films.resolver';
 
 @Module({
-  providers: [FilmsResolver, FilmsService],
+  providers: [FilmsResolver],
 })
-export class FilmsModule {}
+export class ApiFilmsModule {}

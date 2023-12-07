@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FilmsResolver } from './films.resolver';
-import { FilmsService } from './films.service';
+import { FilmsService } from '../../core/films/films.service';
 
 describe('FilmsResolver', () => {
   let resolver: FilmsResolver;
