@@ -11,7 +11,7 @@ export class PeoplesResolver {
     return this.peoplesService.findAll();
   }
 
-  @Query(() => People, { name: 'people' })
+  @Query(() => People, { name: 'peoplesById' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.peoplesService.findOne(id);
   }
