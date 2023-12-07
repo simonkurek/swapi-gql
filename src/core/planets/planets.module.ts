@@ -1,4 +1,8 @@
 import { Module } from '@nestjs/common';
+import { PlanetsService } from './planets.service';
 
-@Module({})
+@Module({
+  providers: [PlanetsService],
+  exports: [PlanetsService],
+})
 export class PlanetsModule {}
