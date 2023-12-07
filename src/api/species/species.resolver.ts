@@ -11,7 +11,7 @@ export class SpeciesResolver {
     return this.speciesService.findAll();
   }
 
-  @Query(() => Species, { name: 'species' })
+  @Query(() => Species, { name: 'speciesById' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.speciesService.findOne(id);
   }
