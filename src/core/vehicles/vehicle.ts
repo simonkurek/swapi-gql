@@ -1,7 +1,8 @@
 import { Film } from '../films/film';
 import { People } from '../peoples/people';
+import { SwapiVO } from '../vo/swapi.vo';
 
-export type Vehicle = {
+export class Vehicle extends SwapiVO {
   name: string;
   model: string;
   manufacturer: string;
@@ -15,10 +16,4 @@ export type Vehicle = {
   vehicle_class: string;
   pilots: string[] | People[];
   films: string[] | Film[];
-  // swapi original data
-  created: Date;
-  edited: Date;
-  url: string;
-  // swapi-gql
-  savetime: Date;
-};
+}

@@ -1,7 +1,8 @@
 import { Film } from '../films/film';
 import { People } from '../peoples/people';
+import { SwapiVO } from '../vo/swapi.vo';
 
-export type Starship = {
+export class Starship extends SwapiVO {
   name: string;
   model: string;
   manufacturer: string;
@@ -17,10 +18,4 @@ export type Starship = {
   starship_class: string;
   pilots: string[] | People[];
   films: string[] | Film[];
-  // swapi original data
-  created: Date;
-  edited: Date;
-  url: string;
-  // swapi-gql
-  savetime: Date;
-};
+}

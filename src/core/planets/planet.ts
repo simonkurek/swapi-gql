@@ -1,7 +1,8 @@
 import { Film } from '../films/film';
 import { People } from '../peoples/people';
+import { SwapiVO } from '../vo/swapi.vo';
 
-export type Planet = {
+export class Planet extends SwapiVO {
   name: string;
   rotation_period: string;
   orbital_period: string;
@@ -13,10 +14,4 @@ export type Planet = {
   population: string;
   residents: string[] | People[];
   films: string[] | Film[];
-  // swapi original data
-  created: Date;
-  edited: Date;
-  url: string;
-  // swapi-gql
-  savetime: Date;
-};
+}

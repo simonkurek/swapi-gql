@@ -4,5 +4,6 @@ import { SwapiModule } from './swapi/swapi.module';
 
 @Module({
   imports: [DbModule, SwapiModule],
+  exports: [DbModule, SwapiModule],
 })
 export class InfrastructureModule {}

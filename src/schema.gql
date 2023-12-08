@@ -3,8 +3,38 @@
 # ------------------------------------------------------
 
 type Film {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Film title"""
+  title: String!
+
+  """Episode id"""
+  episode_id: String!
+
+  """Opening crawl"""
+  opening_crawl: String!
+
+  """Director"""
+  director: String!
+
+  """Producer"""
+  producer: String!
+
+  """Release date"""
+  release_date: String!
+
+  """Characters"""
+  characters: [String!]!
+
+  """Planets"""
+  planets: [String!]!
+
+  """Starships"""
+  starships: [String!]!
+
+  """Vehicles"""
+  vehicles: [String!]!
+
+  """Species"""
+  species: [String!]!
 }
 
 type Species {
@@ -44,5 +74,5 @@ type Query {
   planets: [Planet!]!
   planet(id: Int!): Planet!
   peoples: [People!]!
-  people(id: Int!): People!
+  peoplesById(id: Int!): People!
 }

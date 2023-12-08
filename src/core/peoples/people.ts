@@ -3,8 +3,9 @@ import { Planet } from '../planets/planet';
 import { Specie } from '../species/specie';
 import { Starship } from '../starships/starship';
 import { Vehicle } from '../vehicles/vehicle';
+import { SwapiVO } from '../vo/swapi.vo';
 
-export type People = {
+export class People extends SwapiVO {
   name: string;
   height: string;
   mass: string;
@@ -18,10 +19,4 @@ export type People = {
   species: string[] | Specie[];
   vehicles: string[] | Vehicle[];
   starships: string[] | Starship[];
-  // swapi original data
-  created: Date;
-  edited: Date;
-  url: string;
-  // swapi-gql
-  savetime: Date;
-};
+}

@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
 
 @Injectable()
 export class FilmsService {
-  findAll() {
-    return `This action returns all films`;
+  constructor(private readonly swapiService: SwapiService) {}
+
+  async findAll() {
+    const films = await this.swapiService.fetchFilms();
+    console.log(films);
+    return films;
   }
 
   findOne(id: number) {

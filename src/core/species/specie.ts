@@ -1,8 +1,9 @@
 import { Film } from '../films/film';
 import { People } from '../peoples/people';
 import { Planet } from '../planets/planet';
+import { SwapiVO } from '../vo/swapi.vo';
 
-export type Specie = {
+export class Specie extends SwapiVO {
   name: string;
   classification: string;
   designation: string;
@@ -15,10 +16,4 @@ export type Specie = {
   language: string;
   people: string[] | People[];
   films: string[] | Film[];
-  // swapi original data
-  created: Date;
-  edited: Date;
-  url: string;
-  // swapi-gql
-  savetime: Date;
-};
+}
