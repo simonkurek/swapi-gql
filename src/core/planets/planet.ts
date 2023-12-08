@@ -4,13 +4,13 @@ import { SwapiVO } from '../vo/swapi.vo';
 
 export class Planet extends SwapiVO {
   name: string;
-  rotation_period: string;
-  orbital_period: string;
+  rotationPeriod: string;
+  orbitalPeriod: string;
   diameter: string;
   climate: string;
   gravity: string;
   terrain: string;
-  surface_water: string;
+  surfaceWater: string;
   population: string;
   residents: string[] | People[];
   films: string[] | Film[];

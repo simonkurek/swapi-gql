@@ -7,10 +7,10 @@ type Film {
   title: String!
 
   """Episode id"""
-  episode_id: String!
+  episodeId: String!
 
   """Opening crawl"""
-  opening_crawl: String!
+  openingCrawl: String!
 
   """Director"""
   director: String!
@@ -19,7 +19,7 @@ type Film {
   producer: String!
 
   """Release date"""
-  release_date: String!
+  releaseDate: String!
 
   """Characters"""
   characters: [String!]!
@@ -38,28 +38,81 @@ type Film {
 }
 
 type Species {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  rotationPeriod: String!
+  orbitalPeriod: String!
+  diameter: String!
+  climate: String!
+  gravity: String!
+  terrain: String!
+  surfaceWater: String!
+  population: String!
+  residents: [String!]!
+  films: [String!]!
 }
 
 type Vehicle {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  model: String!
+  manufacturer: String!
+  costInCredits: String!
+  length: String!
+  maxAtmospheringSpeed: String!
+  crew: String!
+  passengers: String!
+  cargoCapacity: String!
+  consumables: String!
+  vehicleClass: String!
+  pilots: [String!]!
+  films: [String!]!
 }
 
 type Starship {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  model: String!
+  manufacturer: String!
+  costInCredits: String!
+  length: String!
+  maxAtmospheringSpeed: String!
+  crew: String!
+  passengers: String!
+  cargoCapacity: String!
+  consumables: String!
+  hyperdriveRating: String!
+  MGLT: String!
+  starshipClass: String!
+  pilots: [String!]!
+  films: [String!]!
 }
 
 type Planet {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  rotationPeriod: String!
+  orbitalPeriod: String!
+  diameter: String!
+  climate: String!
+  gravity: String!
+  terrain: String!
+  surfaceWater: String!
+  population: String!
+  residents: [String!]!
+  films: [String!]!
 }
 
 type People {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  name: String!
+  height: String!
+  mass: String!
+  hairColor: String!
+  skinColor: String!
+  eyeColor: String!
+  birthYear: String!
+  gender: String!
+  homeworld: String!
+  films: [String!]!
+  species: [String!]!
+  vehicles: [String!]!
+  starships: [String!]!
 }
 
 type Query {

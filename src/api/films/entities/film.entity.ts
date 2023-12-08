@@ -6,10 +6,10 @@ export class Film {
   title: string;
 
   @Field(() => String, { description: 'Episode id' })
-  episode_id: string;
+  episodeId: string;
 
   @Field(() => String, { description: 'Opening crawl' })
-  opening_crawl: string;
+  openingCrawl: string;
 
   @Field(() => String, { description: 'Director' })
   director: string;
@@ -18,7 +18,7 @@ export class Film {
   producer: string;
 
   @Field(() => String, { description: 'Release date' })
-  release_date: string;
+  releaseDate: string;
 
   @Field(() => [String], { description: 'Characters' })
   characters: string[];
@@ -34,9 +34,4 @@ export class Film {
 
   @Field(() => [String], { description: 'Species' })
   species: string[];
-  // characters: string[] | People[];
-  // planets: string[] | Planet[];
-  // starships: string[] | Starship[];
-  // vehicles: string[] | Vehicle[];
-  // species: string[] | Specie[];
 }

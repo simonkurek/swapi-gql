@@ -21,12 +21,11 @@ export class Film extends SwapiVO {
   }
 
   title: string;
-  episode_id: string;
-  opening_crawl: string;
+  episodeId: string;
+  openingCrawl: string;
   director: string;
   producer: string;
-  // release_date: Date;
-  release_date: string;
+  releaseDate: string;
   characters: string[] | People[];
   planets: string[] | Planet[];
   starships: string[] | Starship[];

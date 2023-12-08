@@ -2,12 +2,12 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
-import { People } from 'src/core/peoples/people';
-import { Planet } from 'src/core/planets/planet';
-import { Film } from 'src/core/films/film';
-import { Specie } from 'src/core/species/specie';
-import { Starship } from 'src/core/starships/starship';
-import { Vehicle } from 'src/core/vehicles/vehicle';
+import { SwapiPeople, peopleFactory } from './models/people';
+import { SwapiPlanet, planetFactory } from './models/planet';
+import { SwapiFilm, filmFactory } from './models/film';
+import { SwapiSpecie, specieFactory } from './models/specie';
+import { SwapiVehicle, vehicleFactory } from './models/vehicle';
+import { SwapiStarship, starshipFactory } from './models/starship';
 
 const SWAPI_URL = 'https://swapi.dev/api';
 
@@ -31,9 +31,12 @@ type Paginated<T> = {
 export class SwapiService {
   constructor(private readonly httpService: HttpService) {}
 
-  async requestSwapi<T>(resource: SwapiResource): Promise<Paginated<T>> {
+  async requestSwapi<T>(
+    resource: SwapiResource,
+    page: number,
+  ): Promise<Paginated<T>> {
     const { data } = await firstValueFrom(
-      this.httpService.get(`${SWAPI_URL}/${resource}/`).pipe(
+      this.httpService.get(`${SWAPI_URL}/${resource}?page=${page}`).pipe(
         catchError((error: AxiosError) => {
           throw new Error(error.message);
         }),
@@ -56,60 +59,98 @@ export class SwapiService {
   async fetchResults<T>(resource: SwapiResource): Promise<T[]> {
     let results: T[] = [];
     let hasNext = false;
+    let page = 1;
     do {
-      const paginatedResults = await this.requestSwapi<T>(resource);
+      const paginatedResults = await this.requestSwapi<T>(resource, page);
       results = [...results, ...paginatedResults.results];
       hasNext = !!paginatedResults.next;
+      page++;
     } while (hasNext);
     return results;
   }
 
   async fetchPeoples() {
-    return await this.fetchResults<People>(SwapiResource.PEOPLE);
+    const swapiPeoples = await this.fetchResults<SwapiPeople>(
+      SwapiResource.PEOPLE,
+    );
+    return swapiPeoples.map((swapiPeople) => peopleFactory(swapiPeople));
   }
 
   async fetchPeople(id: number) {
-    return await this.requestSwapiWithId<People>(SwapiResource.PEOPLE, id);
+    const hero = await this.requestSwapiWithId<SwapiPeople>(
+      SwapiResource.PEOPLE,
+      id,
+    );
+    return peopleFactory(hero);
   }
 
   async fetchPlanets() {
-    return await this.fetchResults<Planet>(SwapiResource.PLANETS);
+    const planets = await this.fetchResults<SwapiPlanet>(SwapiResource.PLANETS);
+    return planets.map((planet) => planetFactory(planet));
   }
 
   async fetchPlanet(id: number) {
-    return await this.requestSwapiWithId<Planet>(SwapiResource.PLANETS, id);
+    const planet = await this.requestSwapiWithId<SwapiPlanet>(
+      SwapiResource.PLANETS,
+      id,
+    );
+    return planetFactory(planet);
   }
 
   async fetchFilms() {
-    return await this.fetchResults<Film>(SwapiResource.FILMS);
+    const films = await this.fetchResults<SwapiFilm>(SwapiResource.FILMS);
+    return films.map((film) => filmFactory(film));
   }
 
   async fetchFilm(id: number) {
-    return await this.requestSwapiWithId<Film>(SwapiResource.FILMS, id);
+    const film = await this.requestSwapiWithId<SwapiFilm>(
+      SwapiResource.FILMS,
+      id,
+    );
+    return filmFactory(film);
   }
 
   async fetchSpecies() {
-    return await this.fetchResults<Specie>(SwapiResource.SPECIES);
+    const species = await this.fetchResults<SwapiSpecie>(SwapiResource.SPECIES);
+    return species.map((specie) => specieFactory(specie));
   }
 
   async fetchSpecie(id: number) {
-    return await this.requestSwapiWithId<Specie>(SwapiResource.SPECIES, id);
+    const specie = await this.requestSwapiWithId<SwapiSpecie>(
+      SwapiResource.SPECIES,
+      id,
+    );
+    return specieFactory(specie);
   }
 
   async fetchVehicles() {
-    return await this.fetchResults<Vehicle>(SwapiResource.VEHICLES);
+    const vehicles = await this.fetchResults<SwapiVehicle>(
+      SwapiResource.VEHICLES,
+    );
+    return vehicles.map((vehicle) => vehicleFactory(vehicle));
   }
 
   async fetchVehicle(id: number) {
-    return await this.requestSwapiWithId<Vehicle>(SwapiResource.VEHICLES, id);
+    const vehicle = await this.requestSwapiWithId<SwapiVehicle>(
+      SwapiResource.VEHICLES,
+      id,
+    );
+    return vehicleFactory(vehicle);
   }
 
   async fetchStarships() {
-    return await this.fetchResults<Starship>(SwapiResource.STARSHIPS);
+    const starships = await this.fetchResults<SwapiStarship>(
+      SwapiResource.STARSHIPS,
+    );
+    return starships.map((starship) => starshipFactory(starship));
   }
 
   async fetchStarship(id: number) {
-    return await this.requestSwapiWithId<Starship>(SwapiResource.STARSHIPS, id);
+    const starship = await this.requestSwapiWithId<SwapiStarship>(
+      SwapiResource.STARSHIPS,
+      id,
+    );
+    return starshipFactory(starship);
   }
 
   async fetchAll() {

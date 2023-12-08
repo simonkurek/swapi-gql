@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
 
 @Injectable()
 export class PlanetsService {
-  findAll() {
-    return `This action returns all planets`;
+  constructor(private readonly swapiService: SwapiService) {}
+
+  async findAll() {
+    return await this.swapiService.fetchPlanets();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} planet`;
+  async findOne(id: number) {
+    return await this.swapiService.fetchPlanet(id);
   }
 }

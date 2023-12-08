@@ -3,8 +3,5 @@ export class SwapiVO {
     this.savetime = new Date();
   }
 
-  created: Date;
-  edited: Date;
-  url: string;
   savetime: Date;
 }
