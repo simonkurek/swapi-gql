@@ -125,17 +125,42 @@ type WordCount {
 }
 
 type Query {
+  """Returns all Star Wars films"""
   films: [Film!]!
+
+  """Returns a Star Wars film by id, only for authenticated users"""
   film(id: Int!): Film!
+
+  """Returns all Star Wars species"""
   species: [Species!]!
+
+  """Returns a Star Wars species by id, only for authenticated users"""
   speciesById(id: Int!): Species!
+
+  """Returns all Star Wars vehicles"""
   vehicles: [Vehicle!]!
+
+  """Returns a Star Wars vehicle by id, only for authenticated users"""
   vehicle(id: Int!): Vehicle!
+
+  """Returns all Star Wars starships"""
   starships: [Starship!]!
+
+  """Returns a Star Wars starship by id, only for authenticated users"""
   starship(id: Int!): Starship!
+
+  """Returns all Star Wars planets"""
   planets: [Planet!]!
+
+  """Returns a Star Wars planet by id, only for authenticated users"""
   planet(id: Int!): Planet!
+
+  """Returns all Star Wars people-characters"""
   peoples: [People!]!
+
+  """
+  Returns a Star Wars people-character by id, only for authenticated users
+  """
   peoplesById(id: Int!): People!
 
   """Returns the number of words occurrences in opening crawls"""

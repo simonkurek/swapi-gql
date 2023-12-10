@@ -3,6 +3,8 @@
 SWAPI-GQL is a GraphQL wrapper for the Star Wars API (SWAPI). It is built using NestJS and Apollo Server.
 Additionally, it uses Postgres to cache data (because of SWAPI long response times) what gives additional opportunity to get gql nested data.
 
+> Important! - Documentation is provided in GraphQL Playground and in GQL schema and here in README.md
+
 ## Architecture Design
 
 ### Description
@@ -18,8 +20,9 @@ Infrastructure is handling all data related stuff - uses swapi to get data or re
 - [ ] Add tests
 - [x] Add caching
 - [x] Cache check
-- [ ] Documentation
+- [x] Documentation
 - [x] Types for swapi, domain, gql, typeorm
+- [ ] Pagination
 - [ ] Nested gQL queries
 
 ### API

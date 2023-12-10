@@ -6,12 +6,19 @@ import { Vehicle } from './entities/vehicle.entity';
 export class VehiclesResolver {
   constructor(private readonly vehiclesService: VehiclesService) {}
 
-  @Query(() => [Vehicle], { name: 'vehicles' })
+  @Query(() => [Vehicle], {
+    name: 'vehicles',
+    description: 'Returns all Star Wars vehicles',
+  })
   findAll() {
     return this.vehiclesService.findAll();
   }
 
-  @Query(() => Vehicle, { name: 'vehicle' })
+  @Query(() => Vehicle, {
+    name: 'vehicle',
+    description:
+      'Returns a Star Wars vehicle by id, only for authenticated users',
+  })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.vehiclesService.findOne(id);
   }

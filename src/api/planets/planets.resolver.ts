@@ -6,12 +6,19 @@ import { Planet } from './entities/planet.entity';
 export class PlanetsResolver {
   constructor(private readonly planetsService: PlanetsService) {}
 
-  @Query(() => [Planet], { name: 'planets' })
+  @Query(() => [Planet], {
+    name: 'planets',
+    description: 'Returns all Star Wars planets',
+  })
   findAll() {
     return this.planetsService.findAll();
   }
 
-  @Query(() => Planet, { name: 'planet' })
+  @Query(() => Planet, {
+    name: 'planet',
+    description:
+      'Returns a Star Wars planet by id, only for authenticated users',
+  })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.planetsService.findOne(id);
   }

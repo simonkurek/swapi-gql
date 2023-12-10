@@ -6,12 +6,19 @@ import { People } from './entities/people.entity';
 export class PeoplesResolver {
   constructor(private readonly peoplesService: PeoplesService) {}
 
-  @Query(() => [People], { name: 'peoples' })
+  @Query(() => [People], {
+    name: 'peoples',
+    description: 'Returns all Star Wars people-characters',
+  })
   findAll() {
     return this.peoplesService.findAll();
   }
 
-  @Query(() => People, { name: 'peoplesById' })
+  @Query(() => People, {
+    name: 'peoplesById',
+    description:
+      'Returns a Star Wars people-character by id, only for authenticated users',
+  })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.peoplesService.findOne(id);
   }
