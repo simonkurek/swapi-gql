@@ -115,6 +115,15 @@ type People {
   starships: [String!]!
 }
 
+type WordCountItem {
+  word: String!
+  count: Float!
+}
+
+type WordCount {
+  value: [WordCountItem!]!
+}
+
 type Query {
   films: [Film!]!
   film(id: Int!): Film!
@@ -128,4 +137,10 @@ type Query {
   planet(id: Int!): Planet!
   peoples: [People!]!
   peoplesById(id: Int!): People!
+
+  """Returns the number of words occurrences in opening crawls"""
+  wordCount: WordCount!
+
+  """Returns the most appeared character in opening crawls"""
+  mostAppearedCharacter: String!
 }

@@ -16,10 +16,11 @@ Infrastructure is handling all data related stuff - uses swapi to get data or re
 ## Todo
 
 - [ ] Add tests
-- [ ] Add caching
-- [ ] Cache check
+- [x] Add caching
+- [x] Cache check
 - [ ] Documentation
-- [ ] Types for swapi, domain, gql, typeorm
+- [x] Types for swapi, domain, gql, typeorm
+- [ ] Nested gQL queries
 
 ### API
 

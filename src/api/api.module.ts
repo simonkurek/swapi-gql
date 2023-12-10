@@ -8,6 +8,7 @@ import { ApiPeoplesModule } from './peoples/peoples.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
+import { ApiStatisticsModule } from './statistics/statistics.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { join } from 'path';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       driver: ApolloDriver,
     }),
+    ApiStatisticsModule,
   ],
 })
 export class ApiModule {}
