@@ -20,4 +20,14 @@ export class SpeciePostgresPgImpl implements SpecieRepository {
   getById(id: number): Promise<Specie> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: Specie[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as SpecieEntity[];
+    await this.specieRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.specieRepository.clear();
+  }
 }

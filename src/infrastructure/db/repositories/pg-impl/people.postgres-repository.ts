@@ -20,4 +20,14 @@ export class PeopleRepositoryPgImpl implements PeopleRepository {
   getById(id: number): Promise<People> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: People[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as PeopleEntity[];
+    await this.peopleRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.peopleRepository.clear();
+  }
 }

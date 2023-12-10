@@ -4,6 +4,10 @@ import { Planet } from '../planets/planet';
 import { SwapiVO } from '../vo/swapi.vo';
 
 export class Specie extends SwapiVO {
+  constructor() {
+    super();
+  }
+
   name: string;
   classification: string;
   designation: string;

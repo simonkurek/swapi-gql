@@ -6,6 +6,10 @@ import { Vehicle } from '../vehicles/vehicle';
 import { SwapiVO } from '../vo/swapi.vo';
 
 export class People extends SwapiVO {
+  constructor() {
+    super();
+  }
+
   name: string;
   height: string;
   mass: string;

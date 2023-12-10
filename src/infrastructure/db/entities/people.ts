@@ -1,8 +1,11 @@
 import { People } from 'src/core/peoples/people';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'peoples' })
 export class PeopleEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
@@ -41,6 +44,9 @@ export class PeopleEntity {
 
   @Column({ type: 'simple-array' })
   starships: string[]; // | Starship[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const people = new People();

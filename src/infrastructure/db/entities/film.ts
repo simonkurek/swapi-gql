@@ -1,8 +1,11 @@
 import { Film } from 'src/core/films/film';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'films' })
 export class FilmEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   title: string;
 
@@ -18,7 +21,7 @@ export class FilmEntity {
   @Column({ type: 'varchar', length: 255 })
   producer: string;
 
-  @Column({ type: 'string' })
+  @Column({ type: 'varchar', length: 255 })
   releaseDate: string;
 
   @Column({ type: 'simple-array' })
@@ -35,6 +38,9 @@ export class FilmEntity {
 
   @Column({ type: 'simple-array' })
   species: string[]; // | Specie[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const film = new Film();

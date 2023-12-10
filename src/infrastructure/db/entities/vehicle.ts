@@ -1,8 +1,11 @@
 import { Vehicle } from 'src/core/vehicles/vehicle';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'vehicles' })
 export class VehicleEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
@@ -41,6 +44,9 @@ export class VehicleEntity {
 
   @Column({ type: 'simple-array' })
   films: string[]; // | Film[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const vehicle = new Vehicle();

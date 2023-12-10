@@ -3,6 +3,10 @@ import { People } from '../peoples/people';
 import { SwapiVO } from '../vo/swapi.vo';
 
 export class Starship extends SwapiVO {
+  constructor() {
+    super();
+  }
+
   name: string;
   model: string;
   manufacturer: string;

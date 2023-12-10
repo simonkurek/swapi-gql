@@ -1,8 +1,11 @@
 import { Planet } from 'src/core/planets/planet';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'planets' })
 export class PlanetEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
@@ -35,6 +38,9 @@ export class PlanetEntity {
 
   @Column({ type: 'simple-array' })
   films: string[]; // | Film[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const planet = new Planet();

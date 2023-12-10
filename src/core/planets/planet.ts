@@ -3,6 +3,10 @@ import { People } from '../peoples/people';
 import { SwapiVO } from '../vo/swapi.vo';
 
 export class Planet extends SwapiVO {
+  constructor() {
+    super();
+  }
+
   name: string;
   rotationPeriod: string;
   orbitalPeriod: string;

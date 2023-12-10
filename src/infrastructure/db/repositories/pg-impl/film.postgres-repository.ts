@@ -21,4 +21,14 @@ export class FilmRepositoryPgImpl implements FilmRepository {
   getById(id: number): Promise<Film> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: Film[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as FilmEntity[];
+    await this.filmRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.filmRepository.clear();
+  }
 }

@@ -1,8 +1,11 @@
 import { Starship } from 'src/core/starships/starship';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'starships' })
 export class StarshipEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
@@ -47,6 +50,9 @@ export class StarshipEntity {
 
   @Column({ type: 'simple-array' })
   films: string[]; // | Film[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const starship = new Starship();

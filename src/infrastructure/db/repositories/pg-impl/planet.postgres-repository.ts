@@ -20,4 +20,14 @@ export class PlanetRepositoryPgImpl implements PlanetRepository {
   getById(id: number): Promise<Planet> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: Planet[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as PlanetEntity[];
+    await this.planetRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.planetRepository.clear();
+  }
 }

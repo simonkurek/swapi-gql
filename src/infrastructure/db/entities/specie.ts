@@ -1,8 +1,11 @@
 import { Specie } from 'src/core/species/specie';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'species' })
 export class SpecieEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
@@ -38,6 +41,9 @@ export class SpecieEntity {
 
   @Column({ type: 'simple-array' })
   films: string[]; // | Film[];
+
+  @Column({ type: 'bigint' })
+  savetime: number;
 
   toDomainModel() {
     const specie = new Specie();

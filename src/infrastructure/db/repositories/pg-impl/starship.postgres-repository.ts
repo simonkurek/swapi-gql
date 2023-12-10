@@ -22,4 +22,14 @@ export class StarshipRepositoryPgImpl implements StarshipRepository {
   getById(id: number): Promise<Starship> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: Starship[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as StarshipEntity[];
+    await this.starshipRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.starshipRepository.clear();
+  }
 }

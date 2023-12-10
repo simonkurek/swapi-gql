@@ -23,4 +23,14 @@ export class VehicleRepositoryPgImpl implements VehicleRepository {
   getById(id: number): Promise<Vehicle> {
     throw new Error('Method not implemented.');
   }
+
+  async update(data: Vehicle[]): Promise<void> {
+    await this.removeAll();
+    const filmEntities = data as VehicleEntity[];
+    await this.vehicleRepository.save(filmEntities);
+  }
+
+  private async removeAll(): Promise<void> {
+    await this.vehicleRepository.clear();
+  }
 }
