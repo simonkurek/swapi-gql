@@ -1,4 +1,4 @@
-import { Planet } from 'src/core/planets/planet';
+import { Planet } from '../../../core/planets/planet';
 
 export type SwapiPlanet = {
   name: string;

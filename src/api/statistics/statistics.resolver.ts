@@ -1,5 +1,5 @@
 import { Field, ObjectType, Query, Resolver } from '@nestjs/graphql';
-import { StatisticsService } from 'src/core/statistics/statistics.service';
+import { StatisticsService } from '../../core/statistics/statistics.service';
 
 @ObjectType()
 export class WordCountItem {

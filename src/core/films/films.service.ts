@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { FilmRepository } from 'src/infrastructure/db/repositories/interfaces/film.repository';
-import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
+import { FilmRepository } from '../../infrastructure/db/repositories/interfaces/film.repository';
+import { SwapiService } from '../../infrastructure/swapi/swapi.service';
 import { isCacheValid } from '../cache.logic';
 
 @Injectable()

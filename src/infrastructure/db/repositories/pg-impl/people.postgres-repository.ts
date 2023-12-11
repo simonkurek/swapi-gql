@@ -1,4 +1,4 @@
-import { People } from 'src/core/peoples/people';
+import { People } from '../../../../core/peoples/people';
 import { PeopleRepository } from '../interfaces/people.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';

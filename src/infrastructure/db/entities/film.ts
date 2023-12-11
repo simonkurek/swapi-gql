@@ -1,4 +1,4 @@
-import { Film } from 'src/core/films/film';
+import { Film } from '../../../core/films/film';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'films' })

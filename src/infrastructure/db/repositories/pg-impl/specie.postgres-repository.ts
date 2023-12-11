@@ -1,4 +1,4 @@
-import { Specie } from 'src/core/species/specie';
+import { Specie } from '../../../../core/species/specie';
 import { SpecieRepository } from '../interfaces/specie.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';

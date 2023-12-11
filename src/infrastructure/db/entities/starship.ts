@@ -1,4 +1,4 @@
-import { Starship } from 'src/core/starships/starship';
+import { Starship } from '../../../core/starships/starship';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'starships' })

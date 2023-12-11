@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
 import { VehicleEntity } from '../../entities/vehicle';
-import { Vehicle } from 'src/core/vehicles/vehicle';
+import { Vehicle } from '../../../../core/vehicles/vehicle';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

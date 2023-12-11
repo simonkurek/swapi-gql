@@ -1,4 +1,4 @@
-import { Vehicle } from 'src/core/vehicles/vehicle';
+import { Vehicle } from '../../../core/vehicles/vehicle';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'vehicles' })

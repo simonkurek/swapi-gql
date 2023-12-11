@@ -1,4 +1,4 @@
-import { Planet } from 'src/core/planets/planet';
+import { Planet } from '../../../../core/planets/planet';
 import { PlanetRepository } from '../interfaces/planet.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';

@@ -1,4 +1,4 @@
-import { Starship } from 'src/core/starships/starship';
+import { Starship } from '../../../../core/starships/starship';
 import { StarshipRepository } from '../interfaces/starship.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { StarshipEntity } from '../../entities/starship';

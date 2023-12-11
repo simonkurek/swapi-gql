@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { StarshipRepository } from 'src/infrastructure/db/repositories/interfaces/starship.repository';
-import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
+import { StarshipRepository } from '../../infrastructure/db/repositories/interfaces/starship.repository';
+import { SwapiService } from '../../infrastructure/swapi/swapi.service';
 import { isCacheValid } from '../cache.logic';
 
 @Injectable()

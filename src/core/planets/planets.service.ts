@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PlanetRepository } from 'src/infrastructure/db/repositories/interfaces/planet.repository';
-import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
+import { PlanetRepository } from '../../infrastructure/db/repositories/interfaces/planet.repository';
+import { SwapiService } from '../../infrastructure/swapi/swapi.service';
 import { isCacheValid } from '../cache.logic';
 
 @Injectable()

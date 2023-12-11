@@ -1,4 +1,4 @@
-import { Film } from 'src/core/films/film';
+import { Film } from '../../../../core/films/film';
 import { FilmRepository } from '../interfaces/film.repository';
 import { Repository } from 'typeorm';
 import { FilmEntity } from '../../entities/film';

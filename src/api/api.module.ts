@@ -19,7 +19,7 @@ import { ApiStatisticsModule } from './statistics/statistics.module';
     ApiPlanetsModule,
     ApiPeoplesModule,
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: join(process.cwd(), '../../schema.gql'),
       driver: ApolloDriver,
     }),
     ApiStatisticsModule,

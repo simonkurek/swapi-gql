@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PeoplesResolver } from './peoples.resolver';
-import { PeoplesModule } from 'src/core/peoples/peoples.module';
+import { PeoplesModule } from '../../core/peoples/peoples.module';
 
 @Module({
   imports: [PeoplesModule],

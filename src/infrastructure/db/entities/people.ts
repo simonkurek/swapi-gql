@@ -1,4 +1,4 @@
-import { People } from 'src/core/peoples/people';
+import { People } from '../../../core/peoples/people';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'peoples' })

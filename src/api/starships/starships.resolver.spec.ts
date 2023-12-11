@@ -1,13 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { StarshipsResolver } from './starships.resolver';
-import { StarshipsService } from '../../core/starships/starships.service';
+import { StarshipsModule } from '../../core/starships/starships.module';
 
 describe('StarshipsResolver', () => {
   let resolver: StarshipsResolver;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [StarshipsResolver, StarshipsService],
+      imports: [StarshipsModule],
+      providers: [StarshipsResolver],
     }).compile();
 
     resolver = module.get<StarshipsResolver>(StarshipsResolver);

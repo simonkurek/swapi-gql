@@ -1,4 +1,4 @@
-import { Planet } from 'src/core/planets/planet';
+import { Planet } from '../../../core/planets/planet';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'planets' })

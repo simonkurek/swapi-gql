@@ -1,4 +1,4 @@
-import { People } from 'src/core/peoples/people';
+import { People } from '../../../../core/peoples/people';
 
 export interface PeopleRepository {
   getAll(): Promise<People[]>;

@@ -1,4 +1,4 @@
-import { Specie } from 'src/core/species/specie';
+import { Specie } from '../../../core/species/specie';
 
 export type SwapiSpecie = {
   name: string;

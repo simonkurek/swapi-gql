@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { FilmsResolver } from './films.resolver';
-import { FilmsModule } from 'src/core/films/films.module';
+import { FilmsModule } from '../../core/films/films.module';
 
 @Module({
   imports: [FilmsModule],

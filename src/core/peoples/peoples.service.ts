@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PeopleRepository } from 'src/infrastructure/db/repositories/interfaces/people.repository';
-import { SwapiService } from 'src/infrastructure/swapi/swapi.service';
+import { PeopleRepository } from '../../infrastructure/db/repositories/interfaces/people.repository';
+import { SwapiService } from '../../infrastructure/swapi/swapi.service';
 import { isCacheValid } from '../cache.logic';
 
 @Injectable()

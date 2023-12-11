@@ -1,4 +1,4 @@
-import { Starship } from 'src/core/starships/starship';
+import { Starship } from '../../../core/starships/starship';
 
 export type SwapiStarship = {
   name: string;

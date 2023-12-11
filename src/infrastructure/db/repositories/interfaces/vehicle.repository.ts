@@ -1,4 +1,4 @@
-import { Vehicle } from 'src/core/vehicles/vehicle';
+import { Vehicle } from '../../../../core/vehicles/vehicle';
 
 export interface VehicleRepository {
   getAll(): Promise<Vehicle[]>;
