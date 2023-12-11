@@ -1,11 +1,13 @@
 import { Resolver, Query, Args, Int } from '@nestjs/graphql';
 import { PeoplesService } from '../../core/peoples/peoples.service';
 import { People } from './entities/people.entity';
+import { IsPublic } from '../auth/decorators/public.decorator';
 
 @Resolver(() => People)
 export class PeoplesResolver {
   constructor(private readonly peoplesService: PeoplesService) {}
 
+  @IsPublic()
   @Query(() => [People], {
     name: 'peoples',
     description: 'Returns all Star Wars people-characters',

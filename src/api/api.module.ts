@@ -9,6 +9,9 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { join } from 'path';
 import { ApiStatisticsModule } from './statistics/statistics.module';
+import { AuthModule } from './auth/auth.module';
+import { ApiUsersModule } from './users/users.module';
+import { JwtAuthGuard } from './auth/guards/jwt.guard';
 
 @Module({
   imports: [
@@ -18,11 +21,19 @@ import { ApiStatisticsModule } from './statistics/statistics.module';
     ApiStarshipsModule,
     ApiPlanetsModule,
     ApiPeoplesModule,
+    ApiStatisticsModule,
+    ApiUsersModule,
+    AuthModule,
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), '../../schema.gql'),
       driver: ApolloDriver,
     }),
-    ApiStatisticsModule,
+  ],
+  providers: [
+    {
+      provide: 'APP_GUARD',
+      useClass: JwtAuthGuard,
+    },
   ],
 })
 export class ApiModule {}

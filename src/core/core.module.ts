@@ -6,6 +6,7 @@ import { SpeciesModule } from './species/species.module';
 import { StarshipsModule } from './starships/starships.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { StatisticsModule } from './statistics/statistics.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { StatisticsModule } from './statistics/statistics.module';
     StarshipsModule,
     VehiclesModule,
     StatisticsModule,
+    UsersModule,
   ],
 })
 export class CoreModule {}

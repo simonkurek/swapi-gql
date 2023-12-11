@@ -17,9 +17,9 @@ export class FilmRepositoryPgImpl implements FilmRepository {
     return filmEntities.map((filmEntity) => filmEntity.toDomainModel());
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<Film> {
-    throw new Error('Method not implemented.');
+  async getById(id: number): Promise<Film> {
+    const filmEntity = await this.filmRepository.findOneByOrFail({ id });
+    return filmEntity.toDomainModel();
   }
 
   async update(data: Film[]): Promise<void> {

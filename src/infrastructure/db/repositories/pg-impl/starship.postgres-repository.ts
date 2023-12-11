@@ -18,9 +18,12 @@ export class StarshipRepositoryPgImpl implements StarshipRepository {
       starshipEntity.toDomainModel(),
     );
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<Starship> {
-    throw new Error('Method not implemented.');
+
+  async getById(id: number): Promise<Starship> {
+    const starshipEntity = await this.starshipRepository.findOneByOrFail({
+      id,
+    });
+    return starshipEntity.toDomainModel();
   }
 
   async update(data: Starship[]): Promise<void> {

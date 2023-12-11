@@ -19,9 +19,10 @@ export class VehicleRepositoryPgImpl implements VehicleRepository {
       vehicleEntity.toDomainModel(),
     );
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<Vehicle> {
-    throw new Error('Method not implemented.');
+
+  async getById(id: number): Promise<Vehicle> {
+    const vehicleEntity = await this.vehicleRepository.findOneByOrFail({ id });
+    return vehicleEntity.toDomainModel();
   }
 
   async update(data: Vehicle[]): Promise<void> {

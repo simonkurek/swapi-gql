@@ -17,13 +17,17 @@ Infrastructure is handling all data related stuff - uses swapi to get data or re
 
 ## Todo
 
-- [ ] Add tests
 - [x] Add caching
 - [x] Cache check
 - [x] Documentation
 - [x] Types for swapi, domain, gql, typeorm
 - [ ] Pagination
+- [ ] Add more tests
 - [ ] Nested gQL queries
+
+## Known bugs
+
+- [ ] UserRepositoryPgImpl gets injected without methods
 
 ### API
 

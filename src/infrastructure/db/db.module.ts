@@ -8,12 +8,14 @@ import { PlanetEntity } from './entities/planet';
 import { StarshipEntity } from './entities/starship';
 import { VehicleEntity } from './entities/vehicle';
 import { SpecieEntity } from './entities/specie';
+import { UserEntity } from './entities/user';
 import { FilmRepositoryPgImpl } from './repositories/pg-impl/film.postgres-repository';
 import { PeopleRepositoryPgImpl } from './repositories/pg-impl/people.postgres-repository';
 import { PlanetRepositoryPgImpl } from './repositories/pg-impl/planet.postgres-repository';
 import { SpeciePostgresPgImpl } from './repositories/pg-impl/specie.postgres-repository';
 import { StarshipRepositoryPgImpl } from './repositories/pg-impl/starship.postgres-repository';
 import { VehicleRepositoryPgImpl } from './repositories/pg-impl/vehicle..postgres-repository';
+import { UserRepositoryPgImpl } from './repositories/pg-impl/user.postgres-repository';
 
 @Module({
   imports: [
@@ -24,6 +26,7 @@ import { VehicleRepositoryPgImpl } from './repositories/pg-impl/vehicle..postgre
       inject: [ConfigService],
     }),
     TypeOrmModule.forFeature([
+      UserEntity,
       FilmEntity,
       PeopleEntity,
       PlanetEntity,
@@ -57,8 +60,13 @@ import { VehicleRepositoryPgImpl } from './repositories/pg-impl/vehicle..postgre
       provide: 'VehicleRepository',
       useClass: VehicleRepositoryPgImpl,
     },
+    {
+      provide: 'UserRepository',
+      useValue: UserRepositoryPgImpl,
+    },
   ],
   exports: [
+    'UserRepository',
     'FilmRepository',
     'PeopleRepository',
     'PlanetRepository',

@@ -16,9 +16,9 @@ export class PeopleRepositoryPgImpl implements PeopleRepository {
     const peopleEntities = await this.peopleRepository.find();
     return peopleEntities.map((peopleEntity) => peopleEntity.toDomainModel());
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<People> {
-    throw new Error('Method not implemented.');
+  async getById(id: number): Promise<People> {
+    const peopleEntity = await this.peopleRepository.findOneByOrFail({ id });
+    return peopleEntity.toDomainModel();
   }
 
   async update(data: People[]): Promise<void> {

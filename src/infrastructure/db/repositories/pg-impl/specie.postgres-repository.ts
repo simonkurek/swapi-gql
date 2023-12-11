@@ -16,9 +16,10 @@ export class SpeciePostgresPgImpl implements SpecieRepository {
     const specieEntities = await this.specieRepository.find();
     return specieEntities.map((specieEntity) => specieEntity.toDomainModel());
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<Specie> {
-    throw new Error('Method not implemented.');
+
+  async getById(id: number): Promise<Specie> {
+    const specieEntity = await this.specieRepository.findOneByOrFail({ id });
+    return specieEntity.toDomainModel();
   }
 
   async update(data: Specie[]): Promise<void> {

@@ -16,9 +16,9 @@ export class PlanetRepositoryPgImpl implements PlanetRepository {
     return planetEntities.map((planetEntity) => planetEntity.toDomainModel());
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getById(id: number): Promise<Planet> {
-    throw new Error('Method not implemented.');
+  async getById(id: number): Promise<Planet> {
+    const planetEntity = await this.planetRepository.findOneByOrFail({ id });
+    return planetEntity.toDomainModel();
   }
 
   async update(data: Planet[]): Promise<void> {

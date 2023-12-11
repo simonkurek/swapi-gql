@@ -1,5 +1,6 @@
 import { Field, ObjectType, Query, Resolver } from '@nestjs/graphql';
 import { StatisticsService } from '../../core/statistics/statistics.service';
+import { IsPublic } from '../auth/decorators/public.decorator';
 
 @ObjectType()
 export class WordCountItem {
@@ -20,6 +21,7 @@ export class WordCount {
 export class StatisticsResolver {
   constructor(private readonly statisticsService: StatisticsService) {}
 
+  @IsPublic()
   @Query(() => WordCount, {
     name: 'wordCount',
     description: 'Returns the number of words occurrences in opening crawls',
@@ -33,6 +35,7 @@ export class StatisticsResolver {
     return { value: wordCount };
   }
 
+  @IsPublic()
   @Query(() => String, {
     name: 'mostAppearedCharacter',
     description: 'Returns the most appeared character in opening crawls',
